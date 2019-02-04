@@ -16,7 +16,7 @@ fzf with fzf-tmux. Also assumes you run this in tmux.
 
 # Use in vim
 
-ADd this line to your `.vimrc` or `init.vim`. With <Leader>j in normal mode,
+Add this line to your `.vimrc` or `init.vim`. With <Leader>j in normal mode,
 you can select a gitmoji and insert it at the current cursor position.
 
 ```vimscript

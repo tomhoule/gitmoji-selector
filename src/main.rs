@@ -1,5 +1,4 @@
 ///! 📝📝📝📝📝📝
-
 use serde_derive::*;
 use std::process::{Command, Stdio};
 
@@ -42,7 +41,10 @@ fn main() -> Result<(), Error> {
 
     child_process.wait()?;
 
-    let mut stdout = child_process.stdout.take().expect("no access to fzf stdout");
+    let mut stdout = child_process
+        .stdout
+        .take()
+        .expect("no access to fzf stdout");
 
     // Regex to split the line in space-separated groups. We are only interested in the first one
     // (the emoji).

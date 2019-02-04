@@ -1,6 +1,6 @@
 # gitmoji-selector
 
-Gitmojis taken from: [https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json]
+Gitmojis taken from: https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json
 
 # Installation
 
@@ -24,5 +24,3 @@ nmap <Leader>j "=system('gitmoji-selector')<C-M>p
 ```
 
 You can of course change what keys it is bound to.
-
-Then visually select the spot you want to insert the gitmoji, and press the key combination.

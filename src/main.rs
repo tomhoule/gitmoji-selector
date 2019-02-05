@@ -1,6 +1,7 @@
 ///! 📝📝📝📝📝📝
 use serde_derive::*;
 use std::process::{Command, Stdio};
+use std::borrow::Cow;
 
 type Error = Box<std::error::Error>;
 
@@ -8,16 +9,16 @@ type Error = Box<std::error::Error>;
 const GITMOJIS_JSON: &str = include_str!("./gitmojis.json");
 
 #[derive(Debug, Deserialize)]
-struct GitmojisJson {
-    gitmojis: Vec<Gitmoji>,
+struct GitmojisJson<'a> {
+    gitmojis: Vec<Gitmoji<'a>>,
 }
 
 #[derive(Debug, Deserialize)]
-struct Gitmoji {
-    emoji: String,
-    code: String,
-    description: String,
-    name: String,
+struct Gitmoji<'a> {
+    emoji: Cow<'a, str>,
+    code: Cow<'a, str>,
+    description: Cow<'a, str>,
+    name: Cow<'a, str>,
 }
 
 fn main() -> Result<(), Error> {

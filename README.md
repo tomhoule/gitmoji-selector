@@ -20,7 +20,7 @@ Add this line to your `.vimrc` or `init.vim`. With `<Leader>j` in normal mode,
 you can select a gitmoji and insert it at the current cursor position.
 
 ```vimscript
-nmap <Leader>j "=system('gitmoji-selector')<C-M>p
+nmap <Leader>j "=system('gitmoji-selector')<C-M>P
 ```
 
 You can of course change what keys it is bound to.

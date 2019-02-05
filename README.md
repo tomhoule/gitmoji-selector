@@ -4,11 +4,16 @@ Gitmojis taken from: https://raw.githubusercontent.com/carloscuesta/gitmoji/mast
 
 # Installation
 
-With the rust toolchain installed, navigate to the source directory (same as this README), then run the following command:
+With the rust toolchain installed
+
+- if you have the source navigate to the source directory (same as this
+  README), then run the following command:
 
 ```sh
 cargo install --path=. --force
 ```
+
+- directly from git: cargo install --git=https://github.com/tomhoule/gitmoji-selector --force
 
 # External dependencies
 

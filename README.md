@@ -29,3 +29,20 @@ nmap <Leader>j "=system('gitmoji-selector')<C-M>P
 ```
 
 You can of course change what keys it is bound to.
+
+# Use in Emacs
+
+You can add this function to your Emacs configuration:
+
+```emacs-lisp
+(defun gitmoji-selector ()
+  (interactive)
+  (insert (shell-command-to-string "gitmoji-selector")))
+```
+
+Bind it to a keybinding, for example if using evil-leader:
+
+```emacs-lisp
+(evil-leader/set-key
+  "e" 'gitmoji-selector)
+```

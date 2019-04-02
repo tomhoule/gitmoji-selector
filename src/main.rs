@@ -1,11 +1,8 @@
 #![warn(rust_2018_idioms)]
 ///! 📝📝📝📝📝📝
-
 use serde_derive::*;
-use std::process::{Command, Stdio};
 use std::borrow::Cow;
-
-type Error = Box<dyn std::error::Error>;
+use std::process::{Command, Stdio};
 
 // From the gitmojis repo
 const GITMOJIS_JSON: &str = include_str!("./gitmojis.json");
@@ -23,8 +20,14 @@ struct Gitmoji<'a> {
     name: Cow<'a, str>,
 }
 
-fn main() -> Result<(), Error> {
+fn main() -> Result<(), failure::Error> {
     use std::io::{Read, Write};
+
+    if let Err(_) = std::env::var("TMUX") {
+        Err(failure::format_err!(
+            "gitmoji-selector must be run inside tmux"
+        ))?
+    }
 
     let gitmojis: GitmojisJson<'_> = serde_json::from_str(GITMOJIS_JSON)?;
     let mut child_process = Command::new("fzf-tmux")
